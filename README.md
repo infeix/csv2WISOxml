@@ -1,6 +1,8 @@
 
 # README
 
+Dieses Tool konvertiert eine csv-Datei in eine xml-Datei, wobei die XML-Datei in die WISO Steuersoftware eingelesen werden kann. 
+
 ## Voraussetzungen
 
 * Java muss auf dem Rechner installiert sein.
