@@ -3,6 +3,8 @@
 
 Dieses Tool konvertiert eine csv-Datei in eine xml-Datei, wobei die XML-Datei in die WISO Steuersoftware eingelesen werden kann. 
 
+Vorsicht Spagetti Code!!! Quick and Dirty Solution!!! 
+
 ## Voraussetzungen
 
 * Java muss auf dem Rechner installiert sein.
