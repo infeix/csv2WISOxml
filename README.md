@@ -3,7 +3,7 @@
 
 Dieses Tool konvertiert eine csv-Datei in eine xml-Datei, wobei die XML-Datei in die WISO Steuersoftware eingelesen werden kann. 
 
-Vorsicht Spagetti Code!!! Quick and Dirty Solution!!! 
+<img src="https://wiki.vuplus-support.org/images/thumb/5/50/Achtung_gelb.png/685px-Achtung_gelb.png" width="100px" /> **Vorsicht Spagetti Code!!! Quick and Dirty Solution!!!**
 
 ## Voraussetzungen
 
