@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+<ExportInfo>
+  <ExportDatum>2019-11-07T12:26:47</ExportDatum>
+</ExportInfo>
+<Fahrt>
+  <kennzeichen>L-JZ 2</kennzeichen>
+  <fahrer>Unbekannt</fahrer>
+  <fahrtart>Fahrt zur Arbeit</fahrtart>
+  <route>Leipzig-Leipzig</route>
+  <abfahrtort>Deutscher Platz 42,04103 Leipzig</abfahrtort>
+  <abfahrt_zeitpunkt>2017-10-09T23:27:00</abfahrt_zeitpunkt>
+  <abfahrt_kmstand>112796.6</abfahrt_kmstand>
+  <zielort>Trendelenburgstraße ,04289 Leipzig</zielort>
+  <ankunft_zeitpunkt>2017-10-09T23:34:00</ankunft_zeitpunkt>
+  <ankunft_kmstand>112800.6</ankunft_kmstand>
+</Fahrt>
+<Fahrt>
+  <kennzeichen>L-JZ 2</kennzeichen>
+  <fahrer>Unbekannt</fahrer>
+  <fahrtart>Fahrt von der Arbeit</fahrtart>
+  <route>Leipzig-Leipzig</route>
+  <abfahrtort>Deutscher Platz 42,04103 Leipzig</abfahrtort>
+  <abfahrt_zeitpunkt>2017-10-09T23:27:00</abfahrt_zeitpunkt>
+  <abfahrt_kmstand>112796.6</abfahrt_kmstand>
+  <zielort>Trendelenburgstraße ,04289 Leipzig</zielort>
+  <ankunft_zeitpunkt>2017-10-09T23:34:00</ankunft_zeitpunkt>
+  <ankunft_kmstand>112800.6</ankunft_kmstand>
+</Fahrt>
+</root>

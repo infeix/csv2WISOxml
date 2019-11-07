@@ -1,0 +1,4 @@
+﻿fahrtart;Typ;Beginn;Ende;Dauer;Startort;km-Stand (Start);Straße (Start);Hausnummer (Start);Postleitzahl (Start);Stadt (Start);Land (Start);Zielort;km-Stand (Ziel);Straße (Ziel);Hausnummer (Ziel);Postleitzahl (Ziel);Stadt (Ziel);Land (Ziel);Distanz (km);Auto;Kennzeichen;Marke;Modell;Liter getankt;Preis pro Liter;Gesamtpreis;Tankstellenmarke;km seit letztem Tankstopp;Fehlercode;Kosten Versicherung
+BlBlBla;sfs;sdfsdf;sdfsdfsd;;;;
+Fahrt zur Arbeit;Fahrt;09.10.2017 23:27;09.10.2017 23:34;00:07;Arbeit;112796,6;Deutscher Platz;42;04103;Leipzig;Deutschland;Zielort;112800,6;Trendelenburgstraße;;04289;Leipzig;Deutschland;3,9;KFZ Peter;L-JZ 2;Skoda;Octavia;;;;;;;
+Fahrt von der Arbeit;Fahrt;09.10.2017 23:27;09.10.2017 23:34;00:07;Arbeit;112796,6;Deutscher Platz;42;04103;Leipzig;Deutschland;Zielort;112800,6;Trendelenburgstraße;;04289;Leipzig;Deutschland;3,9;KFZ Peter;L-JZ 2;Skoda;Octavia;;;;;;;
