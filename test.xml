@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <root>
 <ExportInfo>
-  <ExportDatum>2019-11-07T12:26:47</ExportDatum>
+  <ExportDatum>2019-11-12T08:42:31</ExportDatum>
 </ExportInfo>
 <Fahrt>
   <kennzeichen>L-JZ 2</kennzeichen>
-  <fahrer>Unbekannt</fahrer>
+  <fahrer>Peter Mustermann</fahrer>
   <fahrtart>Fahrt zur Arbeit</fahrtart>
   <route>Leipzig-Leipzig</route>
   <abfahrtort>Deutscher Platz 42,04103 Leipzig</abfahrtort>
@@ -17,7 +17,7 @@
 </Fahrt>
 <Fahrt>
   <kennzeichen>L-JZ 2</kennzeichen>
-  <fahrer>Unbekannt</fahrer>
+  <fahrer>Peter Mustermann</fahrer>
   <fahrtart>Fahrt von der Arbeit</fahrtart>
   <route>Leipzig-Leipzig</route>
   <abfahrtort>Deutscher Platz 42,04103 Leipzig</abfahrtort>

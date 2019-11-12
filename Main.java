@@ -72,7 +72,7 @@ public class Main  {
           }
           write(writer,true, "<Fahrt>\r\n");
           write(writer,true, "  <kennzeichen>" + s[offset + 20] + "</kennzeichen>\r\n");
-          write(writer,true, "  <fahrer>" + fahrer + "</fahrer>\r\n");
+          write(writer,true, "  <fahrer>" + fahrer.replace("_"," ") + "</fahrer>\r\n");
           if((offset + -1) >= 0)
           {
             fahrtart = s[offset + -1];
