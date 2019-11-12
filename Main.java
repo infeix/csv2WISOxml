@@ -5,6 +5,22 @@ import java.util.Date;
 import java.io.*; 
 
 public class Main  {
+  public static final int FAHRTART = 0;
+  public static final int TYP = 1;
+  public static final int ABFAHRT_ZEITPUNKT = 2;
+  public static final int ANKUNFT_ZEITPUNKT = 3;
+  public static final int ABFAHRT_KM = 6;
+  public static final int ABFAHRT_STRASSE = 7;
+  public static final int ABFAHRT_NUMMER = 8;
+  public static final int ABFAHRT_PLZ = 9;
+  public static final int ABFAHRT_STADT = 10;
+  public static final int ANKUNFT_KM = 13;
+  public static final int ANKUNFT_STRASSE = 14;
+  public static final int ANKUNFT_NUMMER = 15;
+  public static final int ANKUNFT_PLZ = 16;
+  public static final int ANKUNFT_STADT = 17;
+  public static final int KENNZEICHEN = 21;
+
   public static void write(BufferedWriter writer, boolean use_writer,String arg1) throws IOException
   {
     if(use_writer)
@@ -16,93 +32,90 @@ public class Main  {
 
   public static void main(String[] args) 
   {
-    int offset = 1;
+    String splited_fahrt[];
+    FileWriter fw;
+    BufferedWriter writer;
+    BufferedReader br;
+    File file;
+    String buffer = "";
     String fahrer = "";
     String fahrtart = "";
+    Date now = new Date();
+    String pattern1 = "yyy-MM-dd";
+    String pattern2 = "HH:mm:ss";
+    String st;
+    boolean erste = true;
+    String fahrt_csv;
+    SimpleDateFormat datum_frmat = new SimpleDateFormat(pattern1);
+    SimpleDateFormat time_format = new SimpleDateFormat(pattern2);
+    String export_date = datum_frmat.format(now) + "T" + time_format.format(now);
+
     if(args.length > 0 && args[0] != null)
     {
       fahrer = args[0];
     }
     else
     {
-      fahrer = "Unbekannt";
+      fahrer = "Unbekannter Fahrer";
     }
-
-    if(args.length > 1 && args[1] != null)
-    {
-      fahrtart = args[1];
-      offset = 0;
-    }
-
-    Date now = new Date();
-    String pattern1 = "yyy-MM-dd";
-    String pattern2 = "HH:mm:ss";
-    SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat(pattern1);
-    SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat(pattern2);
-    String export_date = simpleDateFormat1.format(now) + "T" + simpleDateFormat2.format(now);
-
 
     try
     {
-      FileWriter fw =  new FileWriter("test.xml");
-      BufferedWriter writer = new BufferedWriter(fw);
+      fw =  new FileWriter("test.xml");
+      writer = new BufferedWriter(fw);
 
+
+      // HEADER
       write(writer,true, "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n");
       write(writer,true, "<root>\r\n");
       write(writer,true, "<ExportInfo>\r\n");
       write(writer,true, "  <ExportDatum>" + export_date + "</ExportDatum>\r\n");
       write(writer,true, "</ExportInfo>\r\n");
 
-      File file = new File("test.txt"); 
-      
-      BufferedReader br = new BufferedReader(new FileReader(file));
-      
-      String st;
-      boolean erste = true;
-      String myString;
-      while ((myString = br.readLine()) != null) 
+      file = new File("test.txt");
+
+      br = new BufferedReader(new FileReader(file));
+
+      while ((fahrt_csv = br.readLine()) != null)
       {
-        String s[] = myString.split(";", 0);
-        
+        splited_fahrt = fahrt_csv.split(";", 0);
+
         try
         {
-          if(!s[offset + 0].equals("Fahrt"))
+          if(!splited_fahrt[TYP].equals("Fahrt"))
           {
             throw new ParseException("Is no 'Fahrt'", 0);
           }
-          write(writer,true, "<Fahrt>\r\n");
-          write(writer,true, "  <kennzeichen>" + s[offset + 20] + "</kennzeichen>\r\n");
-          write(writer,true, "  <fahrer>" + fahrer.replace("_"," ") + "</fahrer>\r\n");
-          if((offset + -1) >= 0)
-          {
-            fahrtart = s[offset + -1];
-          }
-          write(writer,true, "  <fahrtart>" + fahrtart + "</fahrtart>\r\n");
-          write(writer,true, "  <route>" + s[offset + 9] + "-" + s[offset + 16] + "</route>\r\n");
-          write(writer,true, "  <abfahrtort>" + s[offset + 6] + " " + s[offset + 7] + "," + s[offset + 8] + " " + s[offset + 9] + "</abfahrtort>\r\n");
-          
-          Date date1 = new SimpleDateFormat("dd.MM.yyyy HH:mm").parse(s[offset + 1]);  
-          write(writer,true, "  <abfahrt_zeitpunkt>" +
-            simpleDateFormat1.format(date1) + "T" +
-            simpleDateFormat2.format(date1) +
-            "</abfahrt_zeitpunkt>\r\n");
-          write(writer,true, "  <abfahrt_kmstand>" + s[offset + 5].replace(",",".") + "</abfahrt_kmstand>\r\n");
-          write(writer,true, "  <zielort>" + s[offset + 13] + " " + s[offset + 14] + "," + s[offset + 15] + " " + s[offset + 16] + "</zielort>\r\n");
-          Date date2 = new SimpleDateFormat("dd.MM.yyyy HH:mm").parse(s[offset + 2]);  
-          write(writer,true, "  <ankunft_zeitpunkt>" + 
-            simpleDateFormat1.format(date2) + "T" +
-            simpleDateFormat2.format(date2) + 
-            "</ankunft_zeitpunkt>\r\n");
-          write(writer,true, "  <ankunft_kmstand>" + s[offset + 12].replace(",",".") + "</ankunft_kmstand>\r\n");
-          //for (int i=0; i<s.length; i++) 
-          //{
-          //   String element = s[offset + i];
-          //   write(writer,true, i + "<kennzeichen>" + element + "</kennzeichen>");
-          //}
-          write(writer,true, "</Fahrt>\r\n"); 
 
+          // FAHRT
+          buffer = "";
+          buffer += "<Fahrt>\r\n";
+          buffer += "  <kennzeichen>" + splited_fahrt[KENNZEICHEN] + "</kennzeichen>\r\n";
+          buffer += "  <fahrer>" + fahrer.replace("_"," ") + "</fahrer>\r\n";
+          buffer += "  <fahrtart>" + splited_fahrt[FAHRTART] + "</fahrtart>\r\n";
+          buffer += "  <abfahrtort>" + splited_fahrt[ABFAHRT_STRASSE] + " " + splited_fahrt[ABFAHRT_NUMMER] + "," + splited_fahrt[ABFAHRT_PLZ] + " " + splited_fahrt[ABFAHRT_PLZ] + "</abfahrtort>\r\n";
+
+          Date abfahrt_zeit = new SimpleDateFormat("dd.MM.yyyy HH:mm").parse(splited_fahrt[ABFAHRT_ZEITPUNKT]);
+          buffer += "  <abfahrt_zeitpunkt>" + datum_frmat.format(abfahrt_zeit) + "T" + time_format.format(abfahrt_zeit) + "</abfahrt_zeitpunkt>\r\n";
+
+          double abfahrt_km =  Double.parseDouble(splited_fahrt[ABFAHRT_KM].replace(",","."));
+          buffer += "  <abfahrt_kmstand>" + abfahrt_km + "</abfahrt_kmstand>\r\n";
+          buffer += "  <zielort>" + splited_fahrt[ANKUNFT_STRASSE] + " " + splited_fahrt[ANKUNFT_NUMMER] + "," + splited_fahrt[ANKUNFT_PLZ] + " " + splited_fahrt[ANKUNFT_PLZ] + "</zielort>\r\n";
+
+          Date ankunft_zeitpunkt = new SimpleDateFormat("dd.MM.yyyy HH:mm").parse(splited_fahrt[ANKUNFT_ZEITPUNKT]);
+          buffer += "  <ankunft_zeitpunkt>" + datum_frmat.format(ankunft_zeitpunkt) + "T" + time_format.format(ankunft_zeitpunkt) + "</ankunft_zeitpunkt>\r\n";
+
+          double ankunft_km =  Double.parseDouble(splited_fahrt[ANKUNFT_KM].replace(",","."));
+          if(ankunft_km < abfahrt_km)
+          {
+            throw new ParseException("ankunft_km < abfahrt_km", 0);
+          }
+          buffer += "  <ankunft_kmstand>" + ankunft_km + "</ankunft_kmstand>\r\n";
+          buffer += "</Fahrt>\r\n";
+
+          write(writer, true, buffer);
         }
-        catch(ParseException e)    
+        catch(ParseException e)
         {
           //
         }
