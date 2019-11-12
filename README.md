@@ -1,7 +1,7 @@
 
 # README GERMAN
 
-Dieses Tool konvertiert eine csv-Datei in eine xml-Datei, wobei die XML-Datei in die WISO Steuersoftware eingelesen werden kann. 
+Dieses Tool konvertiert eine Fahrtenbuch csv-Datei in eine xml-Datei. Die CSV-Datei stammt von ryd und die konvertierte XML-Datei ist für die WISO-Steuersoftware bestimmt. 
 
 <img src="https://wiki.vuplus-support.org/images/thumb/5/50/Achtung_gelb.png/685px-Achtung_gelb.png" width="100px" /> **Vorsicht Spagetti Code!!! Quick and Dirty Solution!!!**
 
@@ -64,7 +64,7 @@ Fahrt zur Arbeit;Fahrt;09.10.2017 23:27;09.10.2017 23:34;00:07;Arbeit;112796,6;D
 
 
 # README ENGLISH
-This tool converts a csv file into an xml file, whereby the XML file can be read into the WISO tax software. 
+This tool converts a csv driver's logfile in a xml file. The csv file source is from ryd and the converted xml file is for the WISO tax software. 
 
 <img src="https://wiki.vuplus-support.org/images/thumb/5/50/Achtung_gelb.png/685px-Achtung_gelb.png" width="100px" /> **Caution Quick and Dirty Solution!!!**
 
