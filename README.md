@@ -9,6 +9,7 @@ Dieses Tool konvertiert eine csv-Datei in eine xml-Datei, wobei die XML-Datei in
 
 * Java muss auf dem Rechner installiert sein.
 * Die csv Datei muss in test.txt umbenannt werden.
+* test.txt muss im selben Ordner wie die .jar-Datei liegen
 
 ## Ausführen Möglichkeit 1:
 
